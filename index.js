@@ -41,9 +41,9 @@ while (h != 0)
     newRow.append(saveButton)
 
     //set the row color based on time
-    
-    
-    
+    if (i< curHour) newInput.classList.add("past");
+    else if (i == curHour) newInput.classList.add("present");
+    else if (i > curHour) newInput.classList.add("future");
 
     //add elements to the page
     

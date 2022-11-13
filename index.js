@@ -14,34 +14,28 @@ var i = 9;
 var ampm = "am";
 while (h != 0)
 
-
-
-
     //create the hourly div
     var newInput = document.createElement("div");
     newInput.classList.add("row"); 
-
     //create the hour element within our new row
     var newHour = document.createElement("span");
     newHour.className.add("hour","center");
     newHour.innerHTML = h + ampm;
     newInput.append(newHour);
-
     //create hourly content field
-    
-    
-    
+     var newInputText = document.createElement("input")
+     newInputText.classList.add("content","center", "transparent");
+    newInputText.setAttribute("num", i - 9);
     //load values from storage
-    
-    
-    
-    
-    
-    
-
+    var savefile = localStorage.getItem(`item${i - 9}`);
+    if (savefile != null)
+    {
+        newInputText.value = savefile;
+    }
+    newInput.append(newInputText)
     //create the save button for each row
-    
-    
+    var Savebutton = document.createElement("button");
+    var Savebutton.classList.add("save-btn","center");
     
     
     

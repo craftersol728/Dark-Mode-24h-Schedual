@@ -46,7 +46,7 @@ while (h != 0)
     else if (i > curHour) newInput.classList.add("future");
 
     //add elements to the page
-    
+    time.append(newHour);
 
     //hour logic, h is 12-hour for displaying while i is 24-hour for less/greater-than comparison
     

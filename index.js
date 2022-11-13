@@ -34,11 +34,11 @@ while (h != 0)
     }
     newInput.append(newInputText)
     //create the save button for each row
-    var Savebutton = document.createElement("button");
-    var Savebutton.classList.add("save-btn","center");
-    
-    
-    
+    var saveButton = document.createElement("button");
+    saveButton.classList.add("save-btn","center");
+    saveButton.setAttribute("num", i - 9);
+    saveButton.innerHTML = "save"
+    newRow.append(saveButton)
 
     //set the row color based on time
     

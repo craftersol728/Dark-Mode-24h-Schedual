@@ -38,22 +38,22 @@ while (h != 0)
     saveButton.classList.add("save-btn","center");
     saveButton.setAttribute("num", i - 9);
     saveButton.innerHTML = "save"
-    newRow.append(saveButton)
+    newRow.append(saveButton);
 
     //set the row color based on time
     if (i< curHour) newInput.classList.add("past");
     else if (i == curHour) newInput.classList.add("present");
     else if (i > curHour) newInput.classList.add("future");
 
-    //add elements to the page
+    //add elements to the page 
     time.append(newHour);
 
     //hour logic, h is 12-hour for displaying while i is 24-hour for less/greater-than comparison
     
-    
-    
-    
-}
+    h++;
+    i++;
+    if (h>12) {h = 1 ; ampm = "pm"};
+    if (h == 6) h = 0;
 
 //save listener
 $(".save-btn").click(function()

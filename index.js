@@ -1,59 +1,61 @@
 //getting page elements
-var time = $("#time-container");
+var timeContainer = $("#time-container");
 var curTimeContainer = $("#cur-day");
 
-//current date
-var curTime = moment().format('MMMM Do YYYY, h:mm:ss a');
+//displaying the current date
+var curTime = moment().format("hh:mmA on DD-MM-YYYY");
 var curHour = moment().hour();
-curTimeContainer.text(`It is currently ${curTime}`);
-
+curTimeContainer.text(`It is now ${curTime}`);
 
 //initial hour iteration logic for each row
 var h = 9;
 var i = 9;
 var ampm = "am";
 while (h != 0)
+{
+    //create the hourly row
+    var newRow = document.createElement("div");
+    newRow.classList.add("row");
 
-    //create the hourly div
-    var newInput = document.createElement("div");
-    newInput.classList.add("row"); 
     //create the hour element within our new row
     var newHour = document.createElement("span");
-    newHour.className.add("hour","center");
+    newHour.classList.add("hour", "center");
     newHour.innerHTML = h + ampm;
-    newInput.append(newHour);
+    newRow.append(newHour);
+
     //create hourly content field
-     var newInputText = document.createElement("input")
-     newInputText.classList.add("content","center", "transparent");
-    newInputText.setAttribute("num", i - 9);
+    var newContent = document.createElement("input");
+    newContent.classList.add("content", "center", "transparent");
+    newContent.setAttribute("num", i - 9);
     //load values from storage
-    var savefile = localStorage.getItem(`item${i - 9}`);
-    if (savefile != null)
+    var v = localStorage.getItem(`item${i - 9}`);
+    if (v != null)
     {
-        newInputText.value = savefile;
+        newContent.value = v;
     }
-    newInput.append(newInputText)
+    newRow.append(newContent);
+
     //create the save button for each row
-    var saveButton = document.createElement("button");
-    saveButton.classList.add("save-btn","center");
-    saveButton.setAttribute("num", i - 9);
-    saveButton.innerHTML = "save"
-    newRow.append(saveButton);
+    var newSaveBtn = document.createElement("button");
+    newSaveBtn.classList.add("save-btn", "center");
+    newSaveBtn.setAttribute("num", i - 9);
+    newSaveBtn.innerHTML = "save";
+    newRow.append(newSaveBtn);
 
     //set the row color based on time
-    if (i< curHour) newInput.classList.add("past");
-    else if (i == curHour) newInput.classList.add("present");
-    else if (i > curHour) newInput.classList.add("future");
+    if (i < curHour) newRow.classList.add("past");
+    else if (i == curHour) newRow.classList.add("present");
+    else if (i > curHour) newRow.classList.add("future");
 
-    //add elements to the page 
-    time.append(newHour);
+    //add elements to the page
+    timeContainer.append(newRow);
 
     //hour logic, h is 12-hour for displaying while i is 24-hour for less/greater-than comparison
-    
     h++;
     i++;
-    if (h>12) {h = 1 ; ampm = "pm"};
+    if (h > 12) {h = 1; ampm = "pm"};
     if (h == 6) h = 0;
+}
 
 //save listener
 $(".save-btn").click(function()

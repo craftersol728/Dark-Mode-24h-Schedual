@@ -1,9 +1,9 @@
-//getting page elements
+//getting page element
 var timeContainer = $("#time-container");
 var curTimeContainer = $("#cur-day");
 
 //displaying the current date
-var curTime = moment().format("hh:mmA on DD-MM-YYYY");
+var curTime = moment().format('MMMM Do YYYY, h:mm:ss a');
 var curHour = moment().hour();
 curTimeContainer.text(`It is now ${curTime}`);
 
@@ -50,14 +50,14 @@ while (h != 0)
     //add elements to the page
     timeContainer.append(newRow);
 
-    //hour logic, h is 12-hour for displaying while i is 24-hour for less/greater-than comparison
+    //hour logic, 
     h++;
     i++;
     if (h > 12) {h = 1; ampm = "pm"};
     if (h == 6) h = 0;
 }
 
-//save listener
+//save listener function
 $(".save-btn").click(function()
 {
     var saveID = this.getAttribute("num");

@@ -9,7 +9,7 @@ body
 {
   text-align: center;
   background-color: transparent;
-  color: black;
+  color: #333;
   border-radius: 0;
   border-bottom: 10px solid black;
 }
@@ -18,11 +18,11 @@ body
 {
   white-space: pre-wrap;
   display: flexbox;
-  height: 80px;
+  height: 60px;
   width: 100%;
   border-radius: 1px;
   border-style: dotted;
-  border-color: rgb(189, 189, 189);
+  border-color: rgb(160, 160, 160);
   border-radius: 15px;
 }
 
@@ -44,13 +44,13 @@ body
 
 .present
 {
-  background-color: #ff0d00;
+  background-color: #aa0900;
   color: white;
 }
 
 .future
 {
-  background-color: #77dd77;
+  background-color: #4dfc4d;
   color: white;
 }
 
